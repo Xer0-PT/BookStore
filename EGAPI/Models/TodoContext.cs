@@ -7,13 +7,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EGAPI.Models
 {
-    public class TodoContext : DbContext
+    public class DataContext : DbContext
     {
-        public TodoContext(DbContextOptions<TodoContext> options)
+        public DataContext(DbContextOptions<DataContext> options)
             : base(options)
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }
