@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EGAPI.Models
 {
-    public class Categorie
+    public class Category
     {
         public int Id { get; set; }
         public string Name { get; set; }
