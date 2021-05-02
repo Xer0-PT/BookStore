@@ -9,7 +9,7 @@ namespace EGAPI.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public int CategorieID { get; set; }
+        public int CategoriyId { get; set; }
 
     }
 }

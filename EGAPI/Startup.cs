@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using EGAPI.Models;
+using EGAPI.Data;
 
 namespace EGAPI
 {
@@ -19,8 +19,9 @@ namespace EGAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TodoContext>(opt =>
-                                               opt.UseInMemoryDatabase("TodoList"));
+            services.AddDbContext<DataContext>(opt =>
+                                                opt.UseInMemoryDatabase("Data"));
+
             services.AddControllers();
         }
 
