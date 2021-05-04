@@ -1,5 +1,6 @@
 using EGAPI.Data;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -42,8 +43,8 @@ namespace EGAPI
             using var scope = scopeFactory.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<DataContext>();
 
-            if (context.Database.EnsureCreated())
-                SeedData.Initialize(context);
+            context.Database.Migrate();
+            SeedData.Initialize(context);
 
             return host;
         }
