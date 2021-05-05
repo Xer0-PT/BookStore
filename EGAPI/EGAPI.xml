@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EGAPI</name>
+    </assembly>
+    <members>
+        <member name="M:EGAPI.Controllers.AuthorsController.GetAuthors">
+            <summary>
+            Get all Authors
+            </summary>
+            <returns>The list of all Authors</returns>
+        </member>
+        <member name="M:EGAPI.Controllers.AuthorsController.PostAuthor(EGAPI.Models.Author)">
+            <summary>
+            Creates an Author
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST api/Authors
+                {   
+                  "id": "1"
+                  "name": "Mike",
+                  "lastname": "Andrew",
+                }
+            </remarks>
+            /// <param name="author"></param>
+            <returns>A newly created author</returns>
+            <response code="201">Returns the newly created item</response>
+            <response code="400">If the item is null</response>  
+        </member>
+    </members>
+</doc>

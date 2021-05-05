@@ -6,6 +6,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using EGAPI.Data;
 using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace EGAPI
 {
@@ -23,22 +26,40 @@ namespace EGAPI
             // Ligação para a base de dados em Postgres
             services.AddDbContext<DataContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("EgapiConnection")));
 
-/*
-            services.AddDbContext<DataContext>(opt =>
-                                                opt.UseInMemoryDatabase("Data"));
-*/
-            services.AddControllers();
+            /*
+                        services.AddDbContext<DataContext>(opt =>
+                                                            opt.UseInMemoryDatabase("Data"));
+            */
+
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc("v1", new OpenApiInfo
                     {
-                        Title = "Documentação",
-                        Version = "1.0"
+                        Title = "EGAPI API",
+                        Version = "v1.0",
+                        Description = "Projeto para EGAPI",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Joel Martins",
+                            Email = "joelflm@gmail.com",
+                            Url = new Uri("https://exemplo.teste"),
+                        }
                     });
 
                     c.EnableAnnotations();
+
+                    // Adiciona a possibiliade de mostrar os comentários em XML
+                    // Set the comments path for the Swagger JSON and UI.
+                    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                    c.IncludeXmlComments(xmlPath);
                 }
+
             );
+
+            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -53,13 +74,12 @@ namespace EGAPI
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
-           
-/*
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
             });
-*/
+
             app.UseHttpsRedirection();
             app.UseRouting();
 

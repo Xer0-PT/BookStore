@@ -21,6 +21,10 @@ namespace EGAPI.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Get all Authors
+        /// </summary>
+        /// <returns>The list of all Authors</returns>
         // GET: api/Authors
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
@@ -73,9 +77,28 @@ namespace EGAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Authors
+        /// <summary>
+        /// Creates an Author
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     POST api/Authors
+        ///     {   
+        ///       "id": "1"
+        ///       "name": "Mike",
+        ///       "lastname": "Andrew",
+        ///     }
+        /// </remarks>
+        /// /// <param name="author"></param>
+        /// <returns>A newly created author</returns>
+        /// <response code="201">Returns the newly created item</response>
+        /// <response code="400">If the item is null</response>  
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [Produces("application/json")]
         public async Task<ActionResult<Author>> PostAuthor(Author author)
         {
             _context.Authors.Add(author);
