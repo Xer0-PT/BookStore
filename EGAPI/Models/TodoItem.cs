@@ -5,13 +5,9 @@ using System.Threading.Tasks;
 
 namespace EGAPI.Models
 {
-    public class TodoItem
+    public class TodoItem : TodoItemDTO // Para nao duplicar atributos (Herança)
     {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public bool IsComplete { get; set; }
         public string Secret { get; set; }
-
     }
 
     public class TodoItemDTO

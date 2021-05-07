@@ -15,14 +15,12 @@ namespace EGAPI.Data
                 context.Authors.AddRange(
                     new Models.Author
                     {
-                        Id = 1,
                         Name = "José",
                         LastName = "Saramago"
                     },
 
                     new Models.Author
                     {
-                        Id = 2,
                         Name = "Fernando",
                         LastName = "Pessoa"
                     }

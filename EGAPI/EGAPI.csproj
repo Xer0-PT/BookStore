@@ -10,6 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210503203706_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210503203706_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210507215145_init.cs" />
+    <Compile Remove="Migrations\20210507215145_init.Designer.cs" />
+    <Compile Remove="Migrations\20210507220444_init.cs" />
+    <Compile Remove="Migrations\20210507220444_init.Designer.cs" />
+    <Compile Remove="Migrations\20210507221110_initial.cs" />
+    <Compile Remove="Migrations\20210507221110_initial.Designer.cs" />
+    <Compile Remove="Migrations\20210507221145_initial.cs" />
+    <Compile Remove="Migrations\20210507221145_initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
       <PrivateAssets>all</PrivateAssets>
