@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using EGAPI.DTOs;
+using EGAPI.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using EGAPI.Data;
-using EGAPI.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace EGAPI.Controllers
 {
@@ -14,11 +10,11 @@ namespace EGAPI.Controllers
     [ApiController]
     public class AuthorsController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly IAuthorService _authorService;
 
-        public AuthorsController(DataContext context)
+        public AuthorsController(IAuthorService authorService)
         {
-            _context = context;
+            _authorService = authorService;
         }
 
         /// <summary>
@@ -27,16 +23,18 @@ namespace EGAPI.Controllers
         /// <returns>The list of all Authors</returns>
         // GET: api/Authors
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Author>>> GetAuthors()
+        public async Task<ActionResult<IEnumerable<AuthorDTO>>> GetAuthors()
         {
-            return await _context.Authors.ToListAsync();
+            var authors = await _authorService.GetAllAuthors();
+
+            return Ok(authors);
         }
 
         // GET: api/Authors/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Author>> GetAuthor(int id)
+        public async Task<ActionResult<AuthorDTO>> GetAuthor(int id)
         {
-            var author = await _context.Authors.FindAsync(id);
+            var author = await _authorService.GetAuthorByID(id);
 
             if (author == null)
             {
@@ -47,35 +45,27 @@ namespace EGAPI.Controllers
         }
 
         // PUT: api/Authors/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAuthor(int id, Author author)
+        public async Task<IActionResult> PutAuthor(int id, AuthorDTO author)
         {
-            if (id != author.AuthorId)
+            if (id != author.Id)
             {
                 return BadRequest();
             }
+            
+            var result = await _authorService.UpdateAuthor(id, author);
 
-            _context.Entry(author).State = EntityState.Modified;
-
-            try
+            if (result == null)
             {
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
-            catch (DbUpdateConcurrencyException)
+            else
             {
-                if (!AuthorExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return Ok(result);
             }
-
-            return NoContent();
         }
+
+
 
         /// <summary>
         /// Creates an Author
@@ -99,34 +89,27 @@ namespace EGAPI.Controllers
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
         [Produces("application/json")]
-        public async Task<ActionResult<Author>> PostAuthor(Author author)
+        public async Task<ActionResult<AuthorDTO>> PostAuthor(AuthorDTO author)
         {
-            _context.Authors.Add(author);
-            await _context.SaveChangesAsync();
-
-            //return CreatedAtAction("GetAuthor", new { id = author.Id }, author);
-            return CreatedAtAction(nameof(GetAuthor), new { id = author.AuthorId }, author);
+            await _authorService.NewAuthor(author);
+            return CreatedAtAction(nameof(GetAuthor), new { id = author.Id }, author);
         }
 
         // DELETE: api/Authors/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAuthor(int id)
         {
-            var author = await _context.Authors.FindAsync(id);
+            var author = await _authorService.DeleteAuthor(id);
+
             if (author == null)
             {
                 return NotFound();
             }
 
-            _context.Authors.Remove(author);
-            await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool AuthorExists(int id)
-        {
-            return _context.Authors.Any(e => e.AuthorId == id);
-        }
+        
     }
 }

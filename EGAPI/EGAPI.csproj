@@ -20,9 +20,16 @@
     <Compile Remove="Migrations\20210507221110_initial.Designer.cs" />
     <Compile Remove="Migrations\20210507221145_initial.cs" />
     <Compile Remove="Migrations\20210507221145_initial.Designer.cs" />
+    <Compile Remove="Migrations\20210509154131_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210509154131_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20210509154226_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210509154226_InitialCreate.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
       <PrivateAssets>all</PrivateAssets>

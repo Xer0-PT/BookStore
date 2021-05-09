@@ -1,5 +1,4 @@
-﻿
-using EGAPI.Models;
+﻿using EGAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EGAPI.Data
@@ -10,10 +9,6 @@ namespace EGAPI.Data
             : base(options)
         { }
 
-        /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity
-        }*/
 
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }

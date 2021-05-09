@@ -1,10 +1,14 @@
+using AutoMapper;
+using EGAPI.Data;
+using EGAPI.Mappings;
+using EGAPI.Repos;
+using EGAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using EGAPI.Data;
 using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
@@ -23,14 +27,21 @@ namespace EGAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            services.AddTransient<IAuthorService, AuthorService>();
+            services.AddTransient<IAuthorRepo, AuthorRepo>();
+
+            services.AddControllersWithViews()
+            .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
+            // Configuração para o AutoMapper
+            services.AddAutoMapper(typeof(Startup));
+
+
             // Ligação para a base de dados em Postgres
             services.AddDbContext<DataContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("EgapiConnection")));
-
-            /*
-                        services.AddDbContext<DataContext>(opt =>
-                                                            opt.UseInMemoryDatabase("Data"));
-            */
-
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -58,8 +69,6 @@ namespace EGAPI
                 }
 
             );
-
-            services.AddControllers();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

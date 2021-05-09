@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAPI", "EGAPI\EGAPI.csproj", "{EC2B1DBE-21F6-416A-AE9D-9FE6C90416C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGAPI", "EGAPI\EGAPI.csproj", "{EC2B1DBE-21F6-416A-AE9D-9FE6C90416C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAPI.Bookstore.API", "EGAPI.Bookstore.API\EGAPI.Bookstore.API.csproj", "{B8F51E00-4724-4ECD-8151-79052BF6F41A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EC2B1DBE-21F6-416A-AE9D-9FE6C90416C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC2B1DBE-21F6-416A-AE9D-9FE6C90416C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC2B1DBE-21F6-416A-AE9D-9FE6C90416C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F51E00-4724-4ECD-8151-79052BF6F41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F51E00-4724-4ECD-8151-79052BF6F41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F51E00-4724-4ECD-8151-79052BF6F41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F51E00-4724-4ECD-8151-79052BF6F41A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

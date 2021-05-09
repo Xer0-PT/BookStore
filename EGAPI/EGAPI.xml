@@ -10,7 +10,7 @@
             </summary>
             <returns>The list of all Authors</returns>
         </member>
-        <member name="M:EGAPI.Controllers.AuthorsController.PostAuthor(EGAPI.Models.Author)">
+        <member name="M:EGAPI.Controllers.AuthorsController.PostAuthor(EGAPI.DTOs.AuthorDTO)">
             <summary>
             Creates an Author
             </summary>
