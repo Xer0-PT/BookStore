@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EGAPI.Bookstore.EF.Data;
 using EGAPI.Bookstore.Domain.Models;
 
-namespace EGAPI.Controllers
+namespace EGAPI.Bookstore.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

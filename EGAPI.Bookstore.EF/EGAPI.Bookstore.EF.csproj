@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210503203706_InitialMigration.cs" />
+    <Compile Remove="Migrations\20210503203706_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210507215145_init.cs" />
+    <Compile Remove="Migrations\20210507215145_init.Designer.cs" />
+    <Compile Remove="Migrations\20210507220444_init.cs" />
+    <Compile Remove="Migrations\20210507220444_init.Designer.cs" />
+    <Compile Remove="Migrations\20210507221110_initial.cs" />
+    <Compile Remove="Migrations\20210507221110_initial.Designer.cs" />
+    <Compile Remove="Migrations\20210507221145_initial.cs" />
+    <Compile Remove="Migrations\20210507221145_initial.Designer.cs" />
+    <Compile Remove="Migrations\20210509154131_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210509154131_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20210509154226_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210509154226_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20210509211153_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210509211153_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20210510183901_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210510183901_InitialCreate.Designer.cs" />
+    <Compile Remove="Repos\IAuthorRepo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EGAPI.Bookstore.Application\EGAPI.Bookstore.Application.csproj" />
+    <ProjectReference Include="..\EGAPI.Bookstore.Domain\EGAPI.Bookstore.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

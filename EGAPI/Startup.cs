@@ -1,8 +1,8 @@
 using AutoMapper;
-using EGAPI.Data;
-using EGAPI.Mappings;
-using EGAPI.Repos;
-using EGAPI.Services;
+using EGAPI.Bookstore.EF.Mappings;
+using EGAPI.Bookstore.Application.Services;
+using EGAPI.Bookstore.EF.Data;
+using EGAPI.Bookstore.EF.Repos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +28,7 @@ namespace EGAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddTransient<IAuthorService, AuthorService>();
             services.AddTransient<IAuthorRepo, AuthorRepo>();
 
@@ -36,12 +37,23 @@ namespace EGAPI
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
 
-            // Configuração para o AutoMapper
+
+            // Auto Mapper Configurations
             services.AddAutoMapper(typeof(Startup));
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddMvc();
 
 
             // Ligação para a base de dados em Postgres
             services.AddDbContext<DataContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("EgapiConnection")));
+
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

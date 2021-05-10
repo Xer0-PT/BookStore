@@ -1,4 +1,4 @@
-using EGAPI.Data;
+using EGAPI.Bookstore.EF.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

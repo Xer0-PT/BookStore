@@ -1,10 +1,10 @@
-﻿using EGAPI.Bookstore.Application.Services;
-using EGAPI.Bookstore.Application.DTOs;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using EGAPI.Bookstore.Application.Services;
+using EGAPI.Bookstore.Application.DTOs;
 
-namespace EGAPI.Controllers
+namespace EGAPI.Bookstore.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

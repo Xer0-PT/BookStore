@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using EGAPI.Data;
-using EGAPI.Models;
+using EGAPI.Bookstore.EF.Data;
+using EGAPI.Bookstore.Domain.Models;
 
 namespace EGAPI.Controllers
 {

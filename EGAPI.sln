@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EGAPI", "EGAPI\EGAPI.csproj", "{EC2B1DBE-21F6-416A-AE9D-9FE6C90416C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAPI.Bookstore.API", "EGAPI.Bookstore.API\EGAPI.Bookstore.API.csproj", "{B8F51E00-4724-4ECD-8151-79052BF6F41A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAPI.Bookstore.API", "EGAPI.Bookstore.API\EGAPI.Bookstore.API.csproj", "{1325D773-F9A8-4E3B-99D1-9699077CCA98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAPI.Bookstore.Domain", "EGAPI.Bookstore.Domain\EGAPI.Bookstore.Domain.csproj", "{77F51A72-7EC3-44C4-A96B-F20799D68E92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAPI.Bookstore.EF", "EGAPI.Bookstore.EF\EGAPI.Bookstore.EF.csproj", "{EBE997B7-61E6-4158-A503-431195CADD6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EGAPI.Bookstore.Application", "EGAPI.Bookstore.Application\EGAPI.Bookstore.Application.csproj", "{1E0A661C-723D-4F82-AE13-3DFD77BED8D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +23,22 @@ Global
 		{EC2B1DBE-21F6-416A-AE9D-9FE6C90416C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC2B1DBE-21F6-416A-AE9D-9FE6C90416C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC2B1DBE-21F6-416A-AE9D-9FE6C90416C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8F51E00-4724-4ECD-8151-79052BF6F41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8F51E00-4724-4ECD-8151-79052BF6F41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8F51E00-4724-4ECD-8151-79052BF6F41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8F51E00-4724-4ECD-8151-79052BF6F41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1325D773-F9A8-4E3B-99D1-9699077CCA98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1325D773-F9A8-4E3B-99D1-9699077CCA98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1325D773-F9A8-4E3B-99D1-9699077CCA98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1325D773-F9A8-4E3B-99D1-9699077CCA98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F51A72-7EC3-44C4-A96B-F20799D68E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F51A72-7EC3-44C4-A96B-F20799D68E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F51A72-7EC3-44C4-A96B-F20799D68E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F51A72-7EC3-44C4-A96B-F20799D68E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBE997B7-61E6-4158-A503-431195CADD6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE997B7-61E6-4158-A503-431195CADD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE997B7-61E6-4158-A503-431195CADD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE997B7-61E6-4158-A503-431195CADD6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E0A661C-723D-4F82-AE13-3DFD77BED8D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E0A661C-723D-4F82-AE13-3DFD77BED8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E0A661C-723D-4F82-AE13-3DFD77BED8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0A661C-723D-4F82-AE13-3DFD77BED8D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

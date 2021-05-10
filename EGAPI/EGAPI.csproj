@@ -10,20 +10,38 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210503203706_InitialMigration.cs" />
-    <Compile Remove="Migrations\20210503203706_InitialMigration.Designer.cs" />
-    <Compile Remove="Migrations\20210507215145_init.cs" />
-    <Compile Remove="Migrations\20210507215145_init.Designer.cs" />
-    <Compile Remove="Migrations\20210507220444_init.cs" />
-    <Compile Remove="Migrations\20210507220444_init.Designer.cs" />
-    <Compile Remove="Migrations\20210507221110_initial.cs" />
-    <Compile Remove="Migrations\20210507221110_initial.Designer.cs" />
-    <Compile Remove="Migrations\20210507221145_initial.cs" />
-    <Compile Remove="Migrations\20210507221145_initial.Designer.cs" />
-    <Compile Remove="Migrations\20210509154131_InitialCreate.cs" />
-    <Compile Remove="Migrations\20210509154131_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20210509154226_InitialCreate.cs" />
-    <Compile Remove="Migrations\20210509154226_InitialCreate.Designer.cs" />
+    <Compile Remove="Data\**" />
+    <Compile Remove="DTOs\**" />
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="Mappings\**" />
+    <Compile Remove="Migrations\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Repos\**" />
+    <Compile Remove="Services\**" />
+    <Content Remove="Data\**" />
+    <Content Remove="DTOs\**" />
+    <Content Remove="Interfaces\**" />
+    <Content Remove="Mappings\**" />
+    <Content Remove="Migrations\**" />
+    <Content Remove="Models\**" />
+    <Content Remove="Repos\**" />
+    <Content Remove="Services\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="DTOs\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Mappings\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Repos\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Data\**" />
+    <None Remove="DTOs\**" />
+    <None Remove="Interfaces\**" />
+    <None Remove="Mappings\**" />
+    <None Remove="Migrations\**" />
+    <None Remove="Models\**" />
+    <None Remove="Repos\**" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,12 +59,18 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.5.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EGAPI.Bookstore.Domain\EGAPI.Bookstore.Domain.csproj" />
+    <ProjectReference Include="..\EGAPI.Bookstore.EF\EGAPI.Bookstore.EF.csproj" />
   </ItemGroup>
 
 </Project>
