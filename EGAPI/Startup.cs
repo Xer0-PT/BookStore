@@ -39,8 +39,8 @@ namespace EGAPI
 
 
             // Auto Mapper Configurations
-            services.AddAutoMapper(typeof(Startup));
-            var mapperConfig = new MapperConfiguration(mc =>
+            services.AddAutoMapper(typeof(MappingProfile)); //Nao pode ser startup
+            /*var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
             });
@@ -48,7 +48,7 @@ namespace EGAPI
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddMvc();
+            services.AddMvc();*/
 
 
             // Ligação para a base de dados em Postgres
